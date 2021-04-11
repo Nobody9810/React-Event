@@ -4,11 +4,11 @@
 # **:file_folder:React-Event-CaseStudy**
 * * * * *
 ## **:open_file_folder:GROUP  : B**
-### **:clipboard:SUPERVISOR:**
+### **:clipboard: SUPERVISOR:**
 
 **- MOHD KHAIRUL AZMI BIN HASSAN**
 * * * * *
-### **:clipboard:PARTICIPANTS:**
+### **:clipboard: PARTICIPANTS:**
 
 1. **MR. Abdullah Abdul Mjeed [1613003]**
 2. **Abdul Muizz Bin Mohd Yusof [1722663]**
