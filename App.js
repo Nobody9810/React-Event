@@ -19,6 +19,11 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 // REQUIRED VARIABLES
+var eventObject = require('eventObject'); // THIS LINE OF CODE IS ENABLING US TO USE WHATEVER WE WROTE INSIDE OF THE eventObject.js HERE.
+/**
+ * FOR EXAMPLE, COPY THE FOLLOWING LINE OF CODE TO CREATE A NEW EVENT OBJECT >>>>> var EVENT = new EVENT; 
+ */
+
 const readline = require('readline'); // READLINE OBJECT TO RETRIVE INPUT FROM USERS 
 const rl = readline.createInterface({ // INHERIT THE CREATEINTERFACE IN THE SAME CODING PAGE 
  input: process.stdin,
