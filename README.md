@@ -1,4 +1,5 @@
-![KICT_logo3](src: url(/assets/KICT_logo3.jpg))
+* * * * *
+![KICT_logo3](https://github.com/GroupB-Project-CaseStudy/React-Event/blob/main/assets/KICT_logo3.jpg?raw=true)
 * * * * *
 # React-Event-CaseStudy
 * * * * *
