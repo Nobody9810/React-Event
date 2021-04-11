@@ -1,3 +1,5 @@
+![Alt Text](src: url(/assets/KICT_logo3.jpg))
+* * * * *
 # React-Event-CaseStudy
 * * * * *
 
@@ -13,4 +15,6 @@
 3. MaLi (1727913)
 4. Khairul Amin bin Arifin (1729345)
 5. Ahmad Fakhruddin Faris Bin Zulkifli ( 1720823)
+
+
 
