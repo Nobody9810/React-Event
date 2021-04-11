@@ -3,13 +3,12 @@
 * * * * *
 # **React-Event-CaseStudy**
 * * * * *
-### GROUP  : **B**
-## Supervisor:
+## GROUP  : **B**
+### Supervisor:
 
 **- MOHD KHAIRUL AZMI BIN HASSAN**
 * * * * *
-
-## Participants:
+### Participants:
 
 1. **MR. Abdullah Abdul Mjeed [1613003]**
 2. **Abdul Muizz Bin Mohd Yusof [1722663]**
