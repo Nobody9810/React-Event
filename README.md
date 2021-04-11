@@ -1,14 +1,14 @@
 * * * * *
 ![KICT_logo3](https://github.com/GroupB-Project-CaseStudy/React-Event/blob/main/assets/KICT_logo3.jpg?raw=true)
 * * * * *
-# **React-Event-CaseStudy**
+# **:file_folder:React-Event-CaseStudy**
 * * * * *
-## **GROUP  : B**
-### **SUPERVISOR:**
+## **:open_file_folder:GROUP  : B**
+### **:clipboard:SUPERVISOR:**
 
 **- MOHD KHAIRUL AZMI BIN HASSAN**
 * * * * *
-### **PARTICIPANTS:**
+### **:clipboard:PARTICIPANTS:**
 
 1. **MR. Abdullah Abdul Mjeed [1613003]**
 2. **Abdul Muizz Bin Mohd Yusof [1722663]**
@@ -16,7 +16,7 @@
 4. **Khairul Amin bin Arifin [1729345]**
 5. **Ahmad Fakhruddin Faris Bin Zulkifli [1720823]**
 * * * * *
-## **RQUIERMENTS:**
+## **:open_file_folder:RQUIERMENTS:**
 
 1. It contains 30/31 days based on the month of the year.
 2. Each event is a full day event. 
