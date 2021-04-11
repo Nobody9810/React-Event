@@ -1,3 +1,13 @@
-"# React-Event" 
-"# React-Event" 
-"# React-Event" 
+"### React-Event-CaseStudy" 
+
+## Supervisor:
+
+**- MOHD KHAIRUL AZMI BIN HASSAN**
+
+## Participants:
+# GROUP  : **B**
+**1. MR. Abdullah Abdul Mjeed (1613003)**
+**2. Abdul Muizz Bin Mohd Yusof (1722663)**
+**3. MaLi (1727913)**
+**4. Khairul Amin bin Arifin (1729345)**
+
