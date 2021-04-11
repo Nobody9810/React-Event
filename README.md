@@ -1,4 +1,4 @@
-![Alt Text](src: url(/assets/KICT_logo3.jpg))
+![KICT_logo3](src: url(/assets/KICT_logo3.jpg))
 * * * * *
 # React-Event-CaseStudy
 * * * * *
