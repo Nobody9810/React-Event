@@ -26,5 +26,6 @@
 * * * * *
 ## **:open_file_folder:TOOLS:**
 ![node](https://github.com/GroupB-Project-CaseStudy/React-Event/blob/main/assets/node.png?raw=true)
+![js](https://github.com/GroupB-Project-CaseStudy/React-Event/blob/main/assets/js.png?raw=true)
 ![react](https://github.com/GroupB-Project-CaseStudy/React-Event/blob/main/assets/react.png?raw=true)
 * * * * *
