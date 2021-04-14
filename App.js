@@ -1,8 +1,8 @@
 
 /* 
 TITLE: An Event Management System
-PARTICIPENTS: Group B
-RQUIERMENTS:
+PARTICIPANTS: Group B
+REQUIREMENTS:
 1. It contains 30/31 days based on the month of the 
 year.
 2. Each event is a full day event.
@@ -72,7 +72,7 @@ var eventObject = require('eventObject'); // THIS LINE OF CODE IS ENABLING US TO
    <Text style={styles.contents}>The event name is: {this.EVENT.eventName}</Text> 
  
    <Text style={styles.contents}onPress={() => this.AddDate()}>
-    Add New Date supousedly: {this.EVENT.Date} </Text>
+    Add New Date supposedly: {this.EVENT.Date} </Text>
    
    </View>
    ); 
