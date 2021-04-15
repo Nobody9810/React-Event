@@ -15,6 +15,9 @@ year. (ATTAINED USING THE DATE CONSTRUCTOR)
  * WE SUPPOSEDLY GOING TO DECLARE ONE VARIABLE WITH THE NAME 'id', FOR INTERNAL MONGODB USE IF NEEDED 
  */
 
+
+
+
 let EVENT; // IT SHOULD REPRESENT A FULL DAY EVENT
 var eventName; // HAVE A UNIQUE NAME FOR EACH EVENT OBJECT
 const eventVenue = [firstVenue, secondVenue, thirdVenue],
@@ -45,10 +48,10 @@ class eventObject {
         }
     }
 
-    constructor(EVENT){// OVER-RIDE THE DEFAULT CONSTRUCTOR TO INTERACT WITH THE OBJECT MODEL
+  /*  constructor(EVENT){// OVER-RIDE THE DEFAULT CONSTRUCTOR TO INTERACT WITH THE OBJECT MODEL
         this.EVENT = EVENT;
     }
-
+*/
     // GETTERS AND SETTERS 
     get EVENT() { return this.EVENT; } // GETS EVENT OBJECT
     set EVENT(EVENT) { this.EVENT = EVENT; } // SETS EVENT OBJECT
@@ -66,10 +69,50 @@ class eventObject {
     set operatingStartTime(_operatingStartTime) {this.operatingStartTime = '08'+':'+'00'; } // PLEASE, VALIDATE AND FIX IF NECESSARY 
 
     get operatingEndTime() { return this.operatingEndTime; }
-    set operatingEndTime(_operatingEndTime) {this.operatingStartTime = '05'+':'+'00'; } // PLEASE, VALIDATE AND FIX IF NECESSARY     
+    set operatingEndTime(_operatingEndTime) {this.operatingStartTime = '05'+':'+'00'; } // PLEASE, VALIDATE AND FIX IF NECESSARY   
+    
+    
 
 }
 
+const eventObjectView = () => {
+
+
+    return ( 
+
+<table>
+    <h1>Simple table to view the event {this.EVENT} object:</h1>
+  <tr>
+    <th>Attribute:</th>
+    <th>Information:</th>
+  </tr>
+  <tr>
+    <td>Event Name:</td>
+    <td><div>{this.EVENT.eventName}</div></td>
+  </tr>
+  <tr>
+    <td>Event Venue:</td>
+    <td><div>{this.EVENT.eventVenue}</div></td>
+  </tr>
+  <tr>
+    <td>Event Date:</td>
+    <td><div>{this.EVENT.Date}</div></td>
+  </tr>
+  <tr>
+    <td>Starting Time:</td>
+    <td><div>{this.EVENT.operatingStartTime}</div></td>
+  </tr>
+  <tr>
+    <td>Ending Time:</td>
+    <td><div>{this.EVENT.operatingEndTime}</div></td>
+  </tr>
+</table>
+
+
+    );
+}
+
+export default eventObjectView;
 /* HOW TO RETRIEVE DATE DATA
 EVENT.getFullYear();      
 EVENT.getMonth();         
