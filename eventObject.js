@@ -20,10 +20,9 @@ year. (ATTAINED USING THE DATE CONSTRUCTOR)
 
 let EVENT; // IT SHOULD REPRESENT A FULL DAY EVENT
 var eventName; // HAVE A UNIQUE NAME FOR EACH EVENT OBJECT
-const eventVenue = [firstVenue, secondVenue, thirdVenue],
-firstVenue = 'KICT MAIN HALL',
-secondVenue = 'ECON MAIN HALL',
-thirdVenue = 'LAW MAIN COURT'; // SPECIFYING FEW UNIQUE eventVenue ATTRIBUTE VALUES, TO STATE WHERE THE EVENT IS TAKING ACTION
+const eventVenue = ['KICT MAIN HALL', 'ECON MAIN HALL', 'LAW MAIN COURT'];
+
+ // SPECIFYING FEW UNIQUE eventVenue ATTRIBUTE VALUES, TO STATE WHERE THE EVENT IS TAKING ACTION
 /*
 * MAKING USE OF THE JS UTILITY PROVIDED, THE DATE CONSTRUCTOR
 * USUALLY IS IN THE FOLLOWING FORM >>> var Date = new Date();
@@ -42,9 +41,9 @@ class eventObject {
         this.EVENT = {
             eventName: "",
             Date: Date( month, day, hours, minutes ),
-            eventVenue: [""],
-            operatingStartTime: Date( hours, minutes + '\t am' ),
-            operatingEndTime: Date( hours , minutes + '\t pm' )
+            eventVenue: [0],
+            operatingStartTime: Date( hours, minutes ),
+            operatingEndTime: Date( hours , minutes )
         }
     }
 
@@ -66,10 +65,10 @@ class eventObject {
     set Date(Date) { this.Date = Date; } // SETS Date ATTRIBUTE CONSTRUCTOR FOR A PARTICULAR EVENT OBJECT
 
     get operatingStartTime() { return this.operatingStartTime; }
-    set operatingStartTime(_operatingStartTime) {this.operatingStartTime = '08'+':'+'00'; } // PLEASE, VALIDATE AND FIX IF NECESSARY 
+    set operatingStartTime(operatingStartTime) {this.operatingStartTime = operatingStartTime; } // PLEASE, VALIDATE AND FIX IF NECESSARY 
 
     get operatingEndTime() { return this.operatingEndTime; }
-    set operatingEndTime(_operatingEndTime) {this.operatingStartTime = '05'+':'+'00'; } // PLEASE, VALIDATE AND FIX IF NECESSARY   
+    set operatingEndTime(operatingEndTime) {this.operatingEndTime = operatingEndTime; } // PLEASE, VALIDATE AND FIX IF NECESSARY   
     
     
 

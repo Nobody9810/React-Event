@@ -37,7 +37,7 @@ output: process.stdout
 //before run this page , add antd first 
 //npm install antd --save  or   yarn add antd
 */
-import React, { Component, Fragment } from 'react';
+import React, { Component, Fragment, Table } from 'react';
 import 'antd/dist/antd.css';
 import { Input,Button,List,Calendar,Select,DatePicker,TimePicker } from 'antd';
 import { StyleSheet, Text, View } from 'react-native';
@@ -51,14 +51,14 @@ import eventObject from './eventObject.js'
 
  export default class App extends React.Component { 
 
-  constructor(_EVENT){
+  constructor(EVENT){
     super(); 
     this.EVENT = {
      eventName: "Some events, try to have array",
      Date: Date( 'month', 'day', 'hours', 'minutes' ),
-     eventVenue: ['firstVenue'],
-     operatingStartTime: Date( '08', '00' + '\t am' ),
-     operatingEndTime: Date( '05' , '00' + '\t pm' )
+     eventVenue: ["0"],
+     operatingStartTime: Date( 'hours', 'minutes'  ),
+     operatingEndTime: Date( 'hours' , 'minutes'  )
     } 
     }
  
@@ -76,8 +76,10 @@ import eventObject from './eventObject.js'
    <Text style={styles.contents}>The event name is: {this.EVENT.eventName}</Text> 
  
    <Text style={styles.contents}onPress={() => this.AddDate()}>
-    Add New Date supposedly: {this.EVENT.Date} </Text>
-   
+    Add New Date: {this.EVENT.Date} </Text>
+    <Text style={styles.contents}>The event venue is: {this.EVENT.eventVenue}</Text> 
+    <Text style={styles.contents}>The event starting time is: {this.EVENT.operatingStartTime}</Text> 
+    <Text style={styles.contents}>The event ending time is: {this.EVENT.operatingEndTime}</Text> 
    </View>
    ); 
    }
