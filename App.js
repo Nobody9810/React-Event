@@ -35,7 +35,7 @@ output: process.stdout
 //before run this page , add antd first 
 //npm install antd --save  or   yarn add antd
 */
-import React, { Component, Fragment, Table, } from "react";
+import React, { Component, Fragment, Table } from "react";
 import "antd/dist/antd.css";
 import {
   PageHeader,
@@ -49,10 +49,10 @@ import {
   Descriptions,
 } from "antd";
 
-import { UserOutlined } from '@ant-design/icons';
+import { UserOutlined } from "@ant-design/icons";
 
-import './css.css'
-import { StyleSheet, Text, View, } from "react-native";
+import "./css.css";
+import { StyleSheet, Text, View } from "react-native";
 
 // import eventObject from "./eventObject.js";
 // REQUIRED VARIABLES
@@ -66,13 +66,13 @@ export default class App extends React.Component {
     super(props);
 
     this.EVENT = {
-      eventName: "Some events, try to have array",
+      eventName: "",
       Date: Date("month", "day", "hours", "minutes"),
       eventVenue: [""],
       operatingStartTime: Date("hours", "minutes"),
       operatingEndTime: Date("hours", "minutes"),
     };
-    
+
     this.state = {
       NameValue: "",
       AddressValue: "",
@@ -82,7 +82,13 @@ export default class App extends React.Component {
       Date: "",
     };
   }
-
+  /*
+  handleEventName(e) {
+    this.EVENT.eventName.setEventName({
+      eventName: e.target.value,
+    });
+  }
+*/
   AddDate() {
     var date = new Date("month", "day", "hours", "minutes");
     this.EVENT.Date = date;
@@ -93,6 +99,7 @@ export default class App extends React.Component {
       NameValue: e.target.value,
     });
   }
+
   handleAddressChange(e) {
     this.setState({
       AddressValue: e.target.value,
@@ -229,7 +236,7 @@ export default class App extends React.Component {
                 <Select.Option value="KICT MAIN HALL">
                   KICT MAIN HALL
                 </Select.Option>
-                <Select.Option value="ECONS MAIN HALL">
+                <Select.Option value="ECON MAIN HALL">
                   ECONS MAIN HALL
                 </Select.Option>
                 <Select.Option value="LAW MAIN COURT">
@@ -293,7 +300,6 @@ export default class App extends React.Component {
             <Text style={styles.contents}>
               The event name is: {this.EVENT.eventName}
             </Text>
-
             <Text style={styles.contents} onPress={() => this.AddDate()}>
               Add New Date: {this.EVENT.Date}{" "}
             </Text>
@@ -307,9 +313,110 @@ export default class App extends React.Component {
               The event ending time is: {this.EVENT.operatingEndTime}
             </Text>
 
-            <eventObjectView />
+            <div>
+              <div className="main" id="id">
+                <h2>Key-In Event Information</h2>
+                <p>
+                  <Input
+                    className="NameInput" // FIX THIS
+                    placeholder="eventName"
+                    prefix={<UserOutlined />}
+                    value={this.EVENT.eventName}
+                    onChange={this.handleInputChange.bind(this)} // FIX THIS
+                  />
+                </p>
+                <p>
+                  <Select
+                    placeholder="Event Venue"
+                    defaultValue="eventVenue"
+                    value={this.EVENT.eventVenue}
+                    onChange={this.handleSelectChange.bind(this)} // FIX THIS
+                  >
+                    <Select.Option value="KICT MAIN HALL">
+                      KICT MAIN HALL
+                    </Select.Option>
+                    <Select.Option value="ECON MAIN HALL">
+                      ECON MAIN HALL
+                    </Select.Option>
+                    <Select.Option value="LAW MAIN COURT">
+                      LAW MAIN COURT
+                    </Select.Option>
+                    <Select.Option value="CAS">CAS</Select.Option>
+                  </Select>
+                </p>
+                <DatePicker
+                  style={{ width: 100 }}
+                  value={this.EVENT.Date.DateFormatter}
+                  onChange={this.handleDateChange.bind(this)} //FIX THIS
+                />
+                <p>
+                  <TimePicker
+                    className="AddressInput" // FIX THIS
+                    placeholder="From 8:00 am"
+                    value={this.EVENT.OperatingStartTime}
+                    onChange={this.handleAddressChange.bind(this)} //FIX THIS
+                  />
+                </p>
+                <p>
+                  <TimePicker
+                    className="PhoneInput" // FIX THIS
+                    placeholder="Until 5:00 pm" // WE SHOULD SPECIFY IF ELSE CONSTRAINTS
+                    value={this.EVENT.OperatingEndTime}
+                    onChange={this.handlePhoneChange.bind(this)} // FIX THIS
+                  />
+                </p>
+                <br />
+
+                <Button type="primary" onClick={this.handleBtnClick.bind(this)}>
+                  Submit
+                </Button>
+              </div>
+            </div>
+
+            <div className="Detail" id="id">
+              <PageHeader
+                ghost={false}
+                title="Event Confirmation"
+                subTitle="Confirm your event details:"
+              >
+                <Descriptions size="auto" column={2}>
+                  <Descriptions.Item>
+                    Event Name: {"\n" + this.EVENT.eventName}
+                  </Descriptions.Item>
+                  <Descriptions.Item>
+                    EventVenue： {"\n" + this.EVENT.eventVenue}
+                  </Descriptions.Item>
+                  <Descriptions.Item>
+                    Date：{"\n" + this.EVENT.Date}
+                  </Descriptions.Item>
+                  <Descriptions.Item>
+                    Starting Time:
+                    {"\n" + this.EVENT.OperatingStartTime + " am"}
+                  </Descriptions.Item>
+                  <Descriptions.Item>
+                    Ending Time: {"\n" + this.EVENT.OperatingEndTime + " pm"}
+                  </Descriptions.Item>
+                </Descriptions>
+                <Button
+                  key="1"
+                  type="primary"
+                  onClick={this.handleconfirmclick.bind(this)}
+                >
+                  Confirm
+                </Button>
+              </PageHeader>
+            </div>
           </View>
+
+          <Text style={styles.footer}>
+            <b>
+              All Copy Rights are reserved @IIUM,1613003,
+              Email:djy1035@gmail.com
+            </b>
+          </Text>
         </View>
+
+        <eventObjectView />
       </Fragment>
     );
   }
@@ -349,8 +456,8 @@ const styles = StyleSheet.create({
 
     boxSizing: "border-box",
     margin: "8.1px",
-    paddingTop: "310px",
-    paddingBottom: "310px",
+    paddingTop: "0px",
+    paddingBottom: "60px",
     position: "relative",
   },
 
@@ -359,7 +466,7 @@ const styles = StyleSheet.create({
   header: {
     zIndex: 1,
     color: "#fff",
-    backgroundColor: "blue",
+    backgroundColor: "darkblue",
     marginTop: 60,
     fontSize: 60,
     textAlign: "center",
@@ -367,8 +474,16 @@ const styles = StyleSheet.create({
     padding: "8.1px",
   },
 
+  footer: {
+    zIndex: 1,
+    color: "#fff",
+    backgroundColor: "darkblue",
+    fontSize: 17.5,
+  },
+
   contents: {
     // textAlign: "center",
+    marginTop: "100px",
     color: "darkblue",
   },
 
@@ -378,19 +493,4 @@ const styles = StyleSheet.create({
   },
 });
 
-
-
-
-
 /////////////////////////////////////////////////////////////////////////////
-
-
-        
-        
-
-
-
-  
-
-
-

@@ -17,9 +17,15 @@ year. (ATTAINED USING THE DATE CONSTRUCTOR)
 
 import React, { Component, Fragment, Table } from "react";
 
+var EVENT = new EVENT();
 let EVENT; // IT SHOULD REPRESENT A FULL DAY EVENT
 var eventName; // HAVE A UNIQUE NAME FOR EACH EVENT OBJECT
-const eventVenue = ["KICT MAIN HALL", "ECON MAIN HALL", "LAW MAIN COURT"];
+const eventVenue = [
+  "KICT MAIN HALL",
+  "ECON MAIN HALL",
+  "LAW MAIN COURT",
+  "CAS",
+];
 
 // SPECIFYING FEW UNIQUE eventVenue ATTRIBUTE VALUES, TO STATE WHERE THE EVENT IS TAKING ACTION
 /*
@@ -41,8 +47,8 @@ class eventObject extends React.Component {
       eventName: "",
       Date: Date(month, day, hours, minutes),
       eventVenue: [""],
-      operatingStartTime: Date(hours, minutes),
-      operatingEndTime: Date(hours, minutes),
+      operatingStartTime: Time(hours, minutes),
+      operatingEndTime: Time(hours, minutes),
     };
     this.eventObjectView();
   }
@@ -137,7 +143,7 @@ class eventObject extends React.Component {
   };
 }
 
-export default eventObjectView;
+export default  eventObject;
 /* HOW TO RETRIEVE DATE DATA
 EVENT.getFullYear();      
 EVENT.getMonth();         
