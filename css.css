@@ -1,0 +1,58 @@
+#root {
+  background-color: rebeccapurple;
+  background-image: url("./assets/iium-logo3.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 950px 500px;
+}
+.head {
+  text-align: center;
+  padding: 10px;
+  background: #a6e2eb;
+}
+.mian {
+  padding: 24px;
+  background-color: #ffffff;
+  border: 10px solid #ece9e9;
+  width: 500px;
+  height: 380px;
+  margin-left: 50px;
+  margin-top: 5px;
+  background: rgba(255, 255, 255, 0.8);
+}
+.NameInput {
+  width: 150px;
+  margin-right: 10px;
+}
+.AddressInput {
+  width: 150px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+.PhoneInput {
+  width: 150px;
+  margin-right: 10px;
+}
+.EmailInput {
+  width: 150px;
+  margin-right: 10px;
+}
+
+.Detail {
+  padding: 24px;
+  background-color: #f5f5f5;
+  width: 500px;
+  height: 260px;
+  margin-left: 50px;
+  margin-top: 5px;
+  background: rgba(255, 255, 255, 0.8);
+}
+.div3 {
+  padding: 24px;
+  background-color: #f5f5f5;
+  width: 500px;
+  height: 230px;
+  margin-left: 900px;
+  margin-top: -300px;
+  background: rgba(255, 255, 255, 0.8);
+}
