@@ -40,7 +40,7 @@ class eventObject extends React.Component {
     this.EVENT = {
       eventName: "",
       Date: Date(month, day, hours, minutes),
-      eventVenue: [0],
+      eventVenue: [""],
       operatingStartTime: Date(hours, minutes),
       operatingEndTime: Date(hours, minutes),
     };
@@ -137,7 +137,7 @@ class eventObject extends React.Component {
   };
 }
 
-// export default eventObjectView;
+export default eventObjectView;
 /* HOW TO RETRIEVE DATE DATA
 EVENT.getFullYear();      
 EVENT.getMonth();         
