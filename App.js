@@ -52,7 +52,7 @@ import {
 import { UserOutlined } from "@ant-design/icons";
 
 import "./css.css";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 
 // import eventObject from "./eventObject.js";
 // REQUIRED VARIABLES
@@ -150,6 +150,9 @@ export default class App extends React.Component {
   render() {
     const eventObjectView = () => {
       return (
+        
+        <View>
+          
         <table style={styles.table}>
           <h1>Simple table to view the event {this.EVENT} object:</h1>
           <tr>
@@ -187,111 +190,122 @@ export default class App extends React.Component {
             </td>
           </tr>
         </table>
+
+
+        </View>
       );
     };
 
     return (
       <Fragment>
-        <h1 className="head"> Welecome To IIUM Event System </h1>
+        <View style= {{justifyContent: 'center'}}>
+        <h1 className="head"> Welcome to IIUM Event System </h1>
+        </View>
+      
+      <View style= {{flexDirection: 'collum', justifyContent: 'center',alignItems: 'center' ,height: 680 }}>
 
-        <div>
-          <div className="mian" id="id">
-            <h2>Event Information</h2>
-            <Input
-              className="NameInput"
-              placeholder="Name"
-              prefix={<UserOutlined />}
-              value={this.state.NameValue}
-              onChange={this.handleInputChange.bind(this)}
-            />
-            <p>
+        <View>
+          <div>
+            <div className="mian" id="id">
+              <h2>Event Information</h2>
               <Input
-                className="AddressInput"
-                placeholder="Address"
-                value={this.state.AddressValue}
-                onChange={this.handleAddressChange.bind(this)}
-              />
-            </p>
-            <p>
-              <Input
-                className="PhoneInput"
-                placeholder="Phone"
-                onChange={this.handlePhoneChange.bind(this)}
-              />
-            </p>
-            <p>
-              <Input
-                className="EmailInput"
-                placeholder="Email"
-                value={this.state.EmailValue}
-                onChange={this.handleEmailChange.bind(this)}
-              />
-            </p>
-            <p>
-              <Select
-                defaultValue="EventVenue"
-                onChange={this.handleSelectChange.bind(this)}
-              >
-                <Select.Option value="EventVenue">EventVenue</Select.Option>
-                <Select.Option value="KICT MAIN HALL">
-                  KICT MAIN HALL
-                </Select.Option>
-                <Select.Option value="ECON MAIN HALL">
-                  ECONS MAIN HALL
-                </Select.Option>
-                <Select.Option value="LAW MAIN COURT">
-                  LAW MAIN COURT
-                </Select.Option>
-                <Select.Option value="CAS">CAS</Select.Option>
-              </Select>
-            </p>
-            <DatePicker
-              style={{ width: 100 }}
-              value={this.state.Date}
-              onChange={this.handleDateChange.bind(this)}
-            />
+                className="NameInput"
+                placeholder="Name"
+                prefix={<UserOutlined />}
+                value={this.state.NameValue}
+                onChange={this.handleInputChange.bind(this)}
+                />
+              <p>
+                <Input
+                  className="AddressInput"
+                  placeholder="Address"
+                  value={this.state.AddressValue}
+                  onChange={this.handleAddressChange.bind(this)}
+                  />
+              </p>
+              <p>
+                <Input
+                  className="PhoneInput"
+                  placeholder="Phone"
+                  onChange={this.handlePhoneChange.bind(this)}
+                  />
+              </p>
+              <p>
+                <Input
+                  className="EmailInput"
+                  placeholder="Email"
+                  value={this.state.EmailValue}
+                  onChange={this.handleEmailChange.bind(this)}
+                  />
+              </p>
+              <p>
+                <Select
+                style={{ width: 250 }}
+                  defaultValue="Event Venue"
+                  onChange={this.handleSelectChange.bind(this)}
+                  >
+                  <option value="EventVenue">EventVenue </option>
+                  <option value="KICT MAIN HALL"> KICT MAIN HALL </option>
+                  <option value="ECON MAIN HALL"> ECONS MAIN HALL </option>
+                  <option value="LAW MAIN COURT"> LAW MAIN COURT </option>
+                  <option value="CAS">CAS</option>
+                </Select>
+              </p>
 
-            <Button type="primary" onClick={this.handleBtnClick.bind(this)}>
-              Submit
-            </Button>
+              <DatePicker
+                style={{ width: 175 }}
+                value={this.state.Date}
+                onChange={this.handleDateChange.bind(this)}
+                />
+
+              <Button type="primary" onClick={this.handleBtnClick.bind(this)}>
+                Submit
+              </Button>
+
+              <div className="logo">
+        </div>
+            </div>
           </div>
-        </div>
+        </View>
 
-        <div className="Detail" id="id">
-          <PageHeader
-            ghost={false}
-            title="Event"
-            subTitle="This Is Your Event Details"
-          >
-            <Descriptions size="small" column={3}>
-              <Descriptions.Item>
-                Name: {this.state.outputName}
-              </Descriptions.Item>
-              <Descriptions.Item>
-                Address: {this.state.outputAddress}
-              </Descriptions.Item>
-              <Descriptions.Item>
-                Phone: {this.state.outputPhone}
-              </Descriptions.Item>
-              <Descriptions.Item>
-                Email: {this.state.outputEmail}
-              </Descriptions.Item>
-              <Descriptions.Item>
-                EventVenue： {this.state.outputEventVenue}
-              </Descriptions.Item>
-              <Descriptions.Item>
-                Date：{this.state.outputDate}
-              </Descriptions.Item>
-            </Descriptions>
-            <Button
-              key="1"
-              type="primary"
-              onClick={this.handleconfirmclick.bind(this)}
-            >
-              Confirm
-            </Button>
-          </PageHeader>
-        </div>
+        <View>
+          <div className="Detail" id="id">
+          <h2>Your Event Information</h2>
+              <Descriptions size="small" column={3}>
+                <Descriptions.Item>
+                  Name: {this.state.outputName}
+                </Descriptions.Item>
+                <Descriptions.Item>
+                  Address: {this.state.outputAddress}
+                </Descriptions.Item>
+                <Descriptions.Item>
+                  Phone: {this.state.outputPhone}
+                </Descriptions.Item>
+                <Descriptions.Item>
+                  Email: {this.state.outputEmail}
+                </Descriptions.Item>
+                <Descriptions.Item>
+                  EventVenue： {this.state.outputEventVenue}
+                </Descriptions.Item>
+                <Descriptions.Item>
+                  Date：{this.state.outputDate}
+                </Descriptions.Item>
+              </Descriptions>
+              <Button
+                key="1"
+                type="primary"
+                onClick={this.handleconfirmclick.bind(this)}
+                >
+                Confirm
+              </Button>
+          </div>
+        </View>
+
+      </View>
+
+       
+
+
 
         <View style={styles.body}>
           <Text style={styles.header}>React Event Manager</Text>
@@ -323,7 +337,7 @@ export default class App extends React.Component {
                     prefix={<UserOutlined />}
                     value={this.EVENT.eventName}
                     onChange={this.handleInputChange.bind(this)} // FIX THIS
-                  />
+                    />
                 </p>
                 <p>
                   <Select
@@ -331,7 +345,7 @@ export default class App extends React.Component {
                     defaultValue="eventVenue"
                     value={this.EVENT.eventVenue}
                     onChange={this.handleSelectChange.bind(this)} // FIX THIS
-                  >
+                    >
                     <Select.Option value="KICT MAIN HALL">
                       KICT MAIN HALL
                     </Select.Option>

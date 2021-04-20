@@ -1,58 +1,83 @@
 #root {
-  background-color: rebeccapurple;
-  background-image: url("./assets/KICT_logo3.jpg");
+  background-color: #e0e0e0;
+  /* background-image: url("./assets/KICT_logo3.jpg"); */
   background-repeat: no-repeat;
   background-position: center;
   background-size: 950px 500px;
 }
+
+.logo{
+  border-radius: 3px;
+  position: absolute;
+  right:25px;
+  top: 30px;
+  width: 200px;
+  height: 200px;
+  background-image: url("./assets/KICT_logo3.jpg");
+  background-size: 200px 200px;
+
+}
+
 .head {
   text-align: center;
+  color: #f2f2f2;
   padding: 10px;
-  background: #a6e2eb;
+  background: #404040;
 }
 .mian {
-  padding: 24px;
-  background-color: #ffffff;
-  border: 10px solid #ece9e9;
+  justify-content: center;
+  border-radius: 3px;
+  padding: 14px 16px;
+  /* background-color: #ffffff; */
+  /* border: 10px solid #ece9e9; */
   width: 500px;
-  height: 380px;
-  margin-left: 50px;
-  margin-top: 5px;
-  background: rgba(255, 255, 255, 0.8);
+  height: 340px;
+  /* margin-left: 50px; */
+  margin-top: -30px;
+  background: #ffffff;
 }
 .NameInput {
-  width: 150px;
+  width: 250px;
   margin-right: 10px;
 }
 .AddressInput {
-  width: 150px;
+  width: 250px;
   margin-right: 10px;
   margin-top: 10px;
 }
 .PhoneInput {
-  width: 150px;
+  width: 250px;
   margin-right: 10px;
 }
 .EmailInput {
-  width: 150px;
+  width: 250px;
   margin-right: 10px;
 }
-
 .Detail {
-  padding: 24px;
-  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  border-radius: 3px;
+  padding: 14px 16px;
+
+  /* padding: 24px; */
+  /* background-color: #f5f5f5; */
   width: 500px;
-  height: 260px;
-  margin-left: 50px;
-  margin-top: 5px;
-  background: rgba(255, 255, 255, 0.8);
+  /* height: 170px; */
+
+  /* min-width: 500px; */
+  min-height: 170px;
+  /* max-width: 1000px; */
+  /* max-height: 200px; */
+  /* margin-left: 50px; */
+  margin-top: 10px;
+  background: rgba(255, 255, 255);
 }
 .div3 {
   padding: 24px;
   background-color: #f5f5f5;
-  width: 500px;
-  height: 230px;
-  margin-left: 900px;
-  margin-top: -300px;
+  /* width: 500px;
+  height: 230px; */
+  /* margin-left: 900px;
+  margin-top: -300px; */
   background: rgba(255, 255, 255, 0.8);
 }
