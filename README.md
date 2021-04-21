@@ -31,4 +31,4 @@
 * * * * *
 
 ## **:open_file_folder:PROJECT DISCRIPTION:**
-- ADD A SMALL DISCRIPTION AFTEER EVERYTHING IS DONE, HERE.
+-Group B is chosen to do Event Management System inside IIUM Gombak Campus. We try to put dates, venues and times for any event booking management inside the system. We made confirmation for the event booking from the organizer before securing their venue spot
