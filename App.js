@@ -12,13 +12,9 @@ year.
 
 /*Use the readline interface to add communication with the users 
 const readline = require('readline');
-
 const readline = readline.createInterface({
-
 input: process.stdin,
-
 output: process.stdout
-
 });
 */
 //     rl.question('What do you think of Node.js? ', (answer) => {
@@ -50,7 +46,7 @@ import {
 } from "antd";
 
 import { UserOutlined } from "@ant-design/icons";
-
+import Moment from 'moment';
 import "./css.css";
 import { StyleSheet, Text, View, Image } from "react-native";
 
@@ -65,13 +61,6 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.EVENT = {
-      eventName: "",
-      Date: Date("month", "day", "hours", "minutes"),
-      eventVenue: [""],
-      operatingStartTime: Date("hours", "minutes"),
-      operatingEndTime: Date("hours", "minutes"),
-    };
 
     this.state = {
       NameValue: "",
@@ -80,6 +69,10 @@ export default class App extends React.Component {
       EmailValue: "",
       EventVenue: "",
       Date: "",
+      eventName: '',
+      eventVenue: [""],
+      operatingStartTime: '',
+      OperatingEndTime: '',
     };
   }
   /*
@@ -89,11 +82,7 @@ export default class App extends React.Component {
     });
   }
 */
-  AddDate() {
-    var date = new Date("month", "day", "hours", "minutes");
-    this.EVENT.Date = date;
-    this.EVENT.eventName = "new event naming";
-  }
+  
   handleInputChange(e) {
     this.setState({
       NameValue: e.target.value,
@@ -115,7 +104,7 @@ export default class App extends React.Component {
       EmailValue: e.target.value,
     });
   }
-  handleSelectChange(m) {
+  handleSelect1Change(m) {
     this.setState({
       EventVenue: m,
     });
@@ -126,7 +115,6 @@ export default class App extends React.Component {
       Date: n,
     });
   }
-
   handleBtnClick() {
     this.setState({
       outputName: this.state.NameValue.toUpperCase(),
@@ -135,7 +123,7 @@ export default class App extends React.Component {
       outputEmail: this.state.EmailValue,
       formValue: this.state.listData,
       outputEventVenue: this.state.EventVenue,
-      outputDate: this.state.Date.toString(),
+      outputDate: Moment(this.state.Date.toString()).format('MMMM Do YYYY'),
       NameValue: "",
       AddressValue: "",
       PhoneValue: "",
@@ -144,64 +132,52 @@ export default class App extends React.Component {
     });
   }
   handleconfirmclick() {
-    this.setState({});
+    this.setState({
+    });
   }
-
+  handleTimeChange (e) {
+    this.setState({  
+     OperatingStartTime : e
+    });
+  };
+  handleTime1Change(e){
+    this.setState({
+       OperatingEndTime:e
+    })
+  };
+  handlenNameInputChange(e){
+      this.setState({
+      eventName:e.target.value  
+      })
+  };
+  handleSelectChange(m){
+     this.setState({
+      eventVenue:m
+     })
+  };
+  handleDateChange (n){
+      this.setState({
+           Date:n
+   })
+  };
+  handleBtnClick1(){
+      this.setState({
+    outputname:this.state.eventName,
+    outputVenue:this.state.eventVenue,
+    outputDate:Moment(this.state.Date.toString()).format('MMMM Do YYYY'),
+    outputStartTime:Moment(this.state.OperatingStartTime).format('LT'),
+    outputEndTime:Moment(this.state.OperatingEndTime).format('LT')
+   })
+  }
+  handleconfirmclick(){
+  }
   render() {
-    const eventObjectView = () => {
       return (
         
-        <View>
-          
-        <table style={styles.table}>
-          <h1>Simple table to view the event {this.EVENT} object:</h1>
-          <tr>
-            <th>Attribute:</th>
-            <th>Information:</th>
-          </tr>
-          <tr>
-            <td>Event Name:</td>
-            <td>
-              <div>{this.EVENT.eventName}</div>
-            </td>
-          </tr>
-          <tr>
-            <td>Event Venue:</td>
-            <td>
-              <div>{this.EVENT.eventVenue}</div>
-            </td>
-          </tr>
-          <tr>
-            <td>Event Date:</td>
-            <td>
-              <div>{this.EVENT.Date}</div>
-            </td>
-          </tr>
-          <tr>
-            <td>Starting Time:</td>
-            <td>
-              <div>{this.EVENT.operatingStartTime}</div>
-            </td>
-          </tr>
-          <tr>
-            <td>Ending Time:</td>
-            <td>
-              <div>{this.EVENT.operatingEndTime}</div>
-            </td>
-          </tr>
-        </table>
-
-
-        </View>
-      );
-    };
-
-    return (
       <Fragment>
         <View style= {{justifyContent: 'center'}}>
         <h1 className="head"> Welcome to IIUM Event System </h1>
         </View>
-      
       <View style= {{flexDirection: 'collum', justifyContent: 'center',alignItems: 'center' ,height: 680 }}>
 
         <View>
@@ -227,6 +203,7 @@ export default class App extends React.Component {
                 <Input
                   className="PhoneInput"
                   placeholder="Phone"
+                  value={this.state.PhoneValue}
                   onChange={this.handlePhoneChange.bind(this)}
                   />
               </p>
@@ -242,9 +219,7 @@ export default class App extends React.Component {
                 <Select
                 style={{ width: 250 }}
                   defaultValue="Event Venue"
-                  onChange={this.handleSelectChange.bind(this)}
-                  >
-                  <option value="EventVenue">EventVenue </option>
+                  onChange={this.handleSelect1Change.bind(this)}>
                   <option value="KICT MAIN HALL"> KICT MAIN HALL </option>
                   <option value="ECON MAIN HALL"> ECONS MAIN HALL </option>
                   <option value="LAW MAIN COURT"> LAW MAIN COURT </option>
@@ -306,131 +281,119 @@ export default class App extends React.Component {
        
 
 
+      <View style={styles.body}>
+              <Text style={styles.header}>React Event Manager</Text>
+    
+              <View style={styles.container}>
+                <Text style={styles.contents}>
+                  The event name is: {this.state.outputname}
+                </Text>
+                <Text style={styles.contents}>
+                  Add New Date: { this.state.outputDate}
+                </Text>
+                <Text style={styles.contents}>
+                  The event venue is: {this.state.outputVenue}
+                </Text>
+                <Text style={styles.contents}>
+                  The event starting time is: {this.state.outputStartTime}
+                </Text>
+                <Text style={styles.contents}>
+                  The event ending time is: {this.state.outputEndTime}
+                </Text>
+    
+                <div>
+                  <div className="main" id="id">
+                    <h2>Key-In Event Information</h2>
+                    <p>
+                      <Input
+                        className="NameInput" // className is a for css file, u do the layout again in app.js, so it is ok to delete it 
+                        placeholder="EventName"   // this palceolder like a defualt name 
+                        prefix={<UserOutlined />}
+                        value={this.state.eventName}
+                        onChange={this.handlenNameInputChange.bind(this)} //onchange event for user choose a value from event 
+                      />
+                    </p>
+                    <p>
+                    <Select 
+                       defaultValue= 'EventVenue'
+                       onChange={this.handleSelectChange.bind(this)}>
+                      <Select.Option value="KICT MAIN HALL">KICT MAIN HALL</Select.Option>
+                      <Select.Option value="ECONS MAIN HALL">ECONS MAIN HALL</Select.Option>
+                      <Select.Option value="LAW MAIN COURT">LAW MAIN COURT</Select.Option>
+                      <Select.Option value="CAS">CAS</Select.Option>
+                                  </Select>
+                    </p>
+                    <DatePicker style={{ width: 100 }}
+                                           value={this.state.Date}
+                                           onChange={this.handleDateChange.bind(this)}
+                                           format='YYYY-MM-DD' />
 
-        <View style={styles.body}>
-          <Text style={styles.header}>React Event Manager</Text>
-
-          <View style={styles.container}>
-            <Text style={styles.contents}>
-              The event name is: {this.EVENT.eventName}
-            </Text>
-            <Text style={styles.contents} onPress={() => this.AddDate()}>
-              Add New Date: {this.EVENT.Date}{" "}
-            </Text>
-            <Text style={styles.contents}>
-              The event venue is: {this.EVENT.eventVenue}
-            </Text>
-            <Text style={styles.contents}>
-              The event starting time is: {this.EVENT.operatingStartTime}
-            </Text>
-            <Text style={styles.contents}>
-              The event ending time is: {this.EVENT.operatingEndTime}
-            </Text>
-
-            <div>
-              <div className="main" id="id">
-                <h2>Key-In Event Information</h2>
-                <p>
-                  <Input
-                    className="NameInput" // FIX THIS
-                    placeholder="eventName"
-                    prefix={<UserOutlined />}
-                    value={this.EVENT.eventName}
-                    onChange={this.handleInputChange.bind(this)} // FIX THIS
-                    />
-                </p>
-                <p>
-                  <Select
-                    placeholder="Event Venue"
-                    defaultValue="eventVenue"
-                    value={this.EVENT.eventVenue}
-                    onChange={this.handleSelectChange.bind(this)} // FIX THIS
+                    <p>
+                      <TimePicker
+                        className="AddressInput"
+                        placeholder="From 8:00 am"
+                        value={this.state.OperatingStartTime}
+                        onChange={this.handleTimeChange.bind(this)}
+                      />
+                    </p>
+                    <p>
+                      <TimePicker
+                        className="PhoneInput" 
+                        placeholder="Until 5:00 pm" 
+                        value={this.state.OperatingEndTime}
+                        onChange={this.handleTime1Change.bind(this)}
+                      />
+                    </p>
+                    <br />
+    
+                    <Button type="primary" onClick={this.handleBtnClick1.bind(this)}>
+                      Submit
+                    </Button>
+                  </div>
+                </div>
+    <div>
+                <div className="Detail" id="id">
+                  <PageHeader
+                    ghost={false}
+                    title="Event Confirmation"
+                    subTitle="Confirm your event details:"
+                  >
+                    <Descriptions size="auto" column={2}>
+                      <Descriptions.Item>
+                        Event Name: { this.state.outputname}
+                      </Descriptions.Item>
+                      <Descriptions.Item>
+                        EventVenue： {this.state.outputVenue}
+                      </Descriptions.Item>
+                      <Descriptions.Item>
+                        Date：{this.state.outputDate}
+                      </Descriptions.Item>
+                      <Descriptions.Item>
+                        Starting Time:
+                        {this.state.outputStartTime }
+                      </Descriptions.Item>
+                      <Descriptions.Item>
+                        Ending Time: { this.state.outputEndTime }
+                      </Descriptions.Item>
+                    </Descriptions>
+                    <Button
+                      key="1"
+                      type="primary"
+                      onClick={this.handleconfirmclick.bind(this)}
                     >
-                    <Select.Option value="KICT MAIN HALL">
-                      KICT MAIN HALL
-                    </Select.Option>
-                    <Select.Option value="ECON MAIN HALL">
-                      ECON MAIN HALL
-                    </Select.Option>
-                    <Select.Option value="LAW MAIN COURT">
-                      LAW MAIN COURT
-                    </Select.Option>
-                    <Select.Option value="CAS">CAS</Select.Option>
-                  </Select>
-                </p>
-                <DatePicker
-                  style={{ width: 100 }}
-                  value={this.EVENT.Date.DateFormatter}
-                  onChange={this.handleDateChange.bind(this)} //FIX THIS
-                />
-                <p>
-                  <TimePicker
-                    className="AddressInput" // FIX THIS
-                    placeholder="From 8:00 am"
-                    value={this.EVENT.OperatingStartTime}
-                    onChange={this.handleAddressChange.bind(this)} //FIX THIS
-                  />
-                </p>
-                <p>
-                  <TimePicker
-                    className="PhoneInput" // FIX THIS
-                    placeholder="Until 5:00 pm" // WE SHOULD SPECIFY IF ELSE CONSTRAINTS
-                    value={this.EVENT.OperatingEndTime}
-                    onChange={this.handlePhoneChange.bind(this)} // FIX THIS
-                  />
-                </p>
-                <br />
-
-                <Button type="primary" onClick={this.handleBtnClick.bind(this)}>
-                  Submit
-                </Button>
-              </div>
-            </div>
-
-            <div className="Detail" id="id">
-              <PageHeader
-                ghost={false}
-                title="Event Confirmation"
-                subTitle="Confirm your event details:"
-              >
-                <Descriptions size="auto" column={2}>
-                  <Descriptions.Item>
-                    Event Name: {"\n" + this.EVENT.eventName}
-                  </Descriptions.Item>
-                  <Descriptions.Item>
-                    EventVenue： {"\n" + this.EVENT.eventVenue}
-                  </Descriptions.Item>
-                  <Descriptions.Item>
-                    Date：{"\n" + this.EVENT.Date}
-                  </Descriptions.Item>
-                  <Descriptions.Item>
-                    Starting Time:
-                    {"\n" + this.EVENT.OperatingStartTime + " am"}
-                  </Descriptions.Item>
-                  <Descriptions.Item>
-                    Ending Time: {"\n" + this.EVENT.OperatingEndTime + " pm"}
-                  </Descriptions.Item>
-                </Descriptions>
-                <Button
-                  key="1"
-                  type="primary"
-                  onClick={this.handleconfirmclick.bind(this)}
-                >
-                  Confirm
-                </Button>
-              </PageHeader>
-            </div>
-          </View>
-
-          <Text style={styles.footer}>
-            <b>
-              All Copy Rights are reserved @IIUM,1613003,
-              Email:djy1035@gmail.com
-            </b>
-          </Text>
-        </View>
-
-        <eventObjectView />
+                      Confirm
+                    </Button>
+                  </PageHeader>
+                </div></div>
+              </View>
+    
+              <Text style={styles.footer}>
+                <b>
+                  All Copy Rights are reserved @IIUM,1613003,
+                  Email:djy1035@gmail.com
+                </b>
+              </Text>
+            </View>
       </Fragment>
     );
   }
@@ -506,5 +469,3 @@ const styles = StyleSheet.create({
     border: "8.1px solid darkblue",
   },
 });
-
-/////////////////////////////////////////////////////////////////////////////
